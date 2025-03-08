@@ -26,12 +26,14 @@ archives = [
 ]
 
 
-path = input("Entrez le chemin du dossier : ")
+path = input("Entrez le chemin du dossier : ") # Permet à l'utilisateur de spécifier le chemin des fichiers
 path = Path(path)
 if not path.exists():
     print("Le dossier n'existe pas")
     exit()
-video_path = path / "Video"
+
+# Création de dossier pour chaque type de fichier
+ideo_path = path / "Video"
 audio_path = path / "Audio"
 images_path = path / "Images"
 documents_path = path / "Documents"
@@ -42,12 +44,13 @@ dir_path = [video_path, audio_path, images_path, documents_path, archives_path]
 for i in dir_path:
     i.mkdir(exist_ok=True)
 
+# Cibler tous les fichiers du dossier
 files = os.listdir(path)
 
 for file in files:
-    path_file = path / file
+    path_file = path / file    # Récuperer le chemin de chaque fichier
     if path_file.suffix in video :
-        shutil.move(path_file, video_path)
+        shutil.move(path_file, video_path)    # shutil.move(chemin du fichier, chemin de destination)
     elif path_file.suffix in audio:
         shutil.move(path_file, audio_path)
     elif path_file.suffix in documents:
