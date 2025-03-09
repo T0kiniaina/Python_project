@@ -33,7 +33,7 @@ if not path.exists():
     exit()
 
 # Création de dossier pour chaque type de fichier
-ideo_path = path / "Video"
+video_path = path / "Video"
 audio_path = path / "Audio"
 images_path = path / "Images"
 documents_path = path / "Documents"
